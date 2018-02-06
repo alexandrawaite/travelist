@@ -4,6 +4,10 @@
   "description": "A travel community for users to write about their favorite locations around the world.",
   "main": "src/server.js",
   "scripts": {
+    "db:create": "createdb travelist && psql travelist < src/data/schema.sql",
+    "db:drop": "dropdb --if-exists travelist",
+    "db:seed": "psql travelist < src/data/seed.sql",
+    "db:init": "npm run db:drop && npm run db:create && npm run db:seed",
     "test": "test"
   },
   "repository": {
