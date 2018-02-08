@@ -10,8 +10,9 @@ router.route('/sign-up')
       .then(() => {
         res.redirect('/')
       })
-      .catch(() => {
-        res.render('authentication/sign-up', { error: 'That email already exists' })
+      .catch((error) => {
+        // res.render('authentication/sign-up', { error: 'That email already exists' })
+        console.log('signUp error::', error)
       })
   })
 

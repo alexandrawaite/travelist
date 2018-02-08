@@ -8,10 +8,10 @@ const signUp = (user) => {
         INSERT INTO users
           (name, email, password, primary_city)
         VALUES
-          ($/name/, $/email/, $/password/, $/primary_city/)
+          ($1, $2, $3, $4)
         RETURNING *
       `
-      return db.one(query, user.name, user.email, hashedPassword, user.primary_city)
+      return db.one(query, [user.name, user.email, hashedPassword, user.primary_city])
     })
 }
 

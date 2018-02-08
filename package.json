@@ -9,7 +9,8 @@
     "db:drop": "dropdb --if-exists travelist",
     "db:seed": "psql travelist < src/data/seed.sql",
     "db:init": "npm run db:drop && npm run db:create && npm run db:seed",
-    "test": "test"
+    "test": "test",
+    "db:heroku:create": "psql -h $HOSTNAME -U $UNAME -d $DB_NAME -W $PW < src/data/schema.sql"
   },
   "repository": {
     "type": "git",
