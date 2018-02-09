@@ -1,5 +1,5 @@
 const express = require('express')
-const { signUp, signIn } = require('../actions/user')
+const { signUp, signIn } = require('../actions')
 
 const router = express.Router()
 
@@ -11,8 +11,7 @@ router.route('/sign-up')
         res.redirect('/')
       })
       .catch((error) => {
-        // res.render('authentication/sign-up', { error: 'That email already exists' })
-        console.log('signUp error::', error)
+        res.render('authentication/sign-up', { error: 'That email already exists' })
       })
   })
 
@@ -25,7 +24,7 @@ router.route('/sign-in')
           res.render('authentication/sign-in', { error: 'Invalid username or password' })
         }
         req.session.user = user
-        res.redirect('/')
+        res.redirect(`/users/${req.session.user.id}`)
       })
       .catch(() => {
         res.render('authentication/sign-in', { error: 'Invalid username or password' })
