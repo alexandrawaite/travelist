@@ -1,3 +1,13 @@
+<% include ./partials/header %>
+
 <div class="splash">
   <h1>Travelist</h1>
+
+  <div class="city-list">
+    <% cities.forEach(function(city) { %>
+    <p><%= city.name %></p>
+    <% }) %>
+  </div>
 </div>
+
+<% include ./partials/footer %>
