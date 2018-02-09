@@ -17,6 +17,16 @@ app.use(express.static(`${ROOT_DIR}/public`))
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
+app.use(
+  session({
+    name: 'session_id',
+    secret: 'wooohooo',
+    resave: false,
+    saveUninitialized: false,
+    cookie: { expires: 600000 },
+  })
+)
+
 app.use(routes)
 
 app.listen(PORT, () => {
