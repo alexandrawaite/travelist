@@ -31,7 +31,17 @@ const signIn = (user) => {
   })
 }
 
+const getUserById = (userId) => {
+  const query = `
+    SELECT * FROM
+      users
+    WHERE id = $1
+  `
+  return db.one(query, [userId])
+}
+
 module.exports = {
   signUp,
-  signIn
+  signIn,
+  getUserById,
 }
