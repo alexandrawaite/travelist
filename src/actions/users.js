@@ -40,8 +40,23 @@ const getUserById = (userId) => {
   return db.one(query, [userId])
 }
 
+const updateUser = (userId, user) => {
+  const query = `
+    UPDATE
+      users
+    SET
+      name = $1,
+      primary_city = $2
+    WHERE
+      id = $3
+    RETURNING *
+  `
+  return db.one(query, [user.name, user.primary_city, userId])
+}
+
 module.exports = {
   signUp,
   signIn,
   getUserById,
+  updateUser
 }
