@@ -3,6 +3,12 @@
   <h1><%= city.name %></h1>
   <p><%= city.description %></p>
 
+  <% if (isLoggedIn) { %>
+  <form action="/posts/<%= city.id %>/new">
+    <button type="submit">Add a post</button>
+  </form>
+  <% } %>
+
   <% posts.forEach(function(post) { %>
   <p><%= post.title %></p>
   <p><%= post.body %></p>
