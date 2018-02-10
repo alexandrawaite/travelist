@@ -1,0 +1,21 @@
+<% include ../partials/header %>
+
+<h1>Profile</h1>
+
+<p><%= user.name %></p>
+<p><%= user.primary_city %></p>
+<p><%= user.joined_at %></p>
+<form action="/users/<%= user.id %>/edit">
+  <button type="submit">Edit</button>
+</form>
+
+
+<% posts.forEach(function(post) { %>
+<p><%= post.title %></p>
+<p><%= post.body %></p>
+<form action="/posts/<%= post.id %>/edit">
+  <button type="submit">Edit post</button>
+</form>
+<% }) %>
+
+<% include ../partials/footer %>
