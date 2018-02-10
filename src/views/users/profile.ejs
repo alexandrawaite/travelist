@@ -6,4 +6,9 @@
 <p><%= user.primary_city %></p>
 <p><%= user.joined_at %></p>
 
+<% posts.forEach(function(post) { %>
+<p><%= post.title %></p>
+<p><%= post.body %></p>
+<% }) %>
+
 <% include ../partials/footer %>
