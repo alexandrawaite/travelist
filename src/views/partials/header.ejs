@@ -6,7 +6,13 @@
   </head>
   <body>
     <ul>
+      <% if (!isLoggedIn) { %>
       <li><a href="/">Home</a></li>
       <li><a href="/sign-up">Sign up</a></li>
       <li><a href="/sign-in">Sign in</a></li>
+      <% } else { %>
+      <li><a href="/">Home</a></li>
+      <li><a href="/users/private">Profile</a></li>
+      <li><a href="/logout">Log out</a></li>
+      <% } %>
     </ul>
