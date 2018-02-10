@@ -8,7 +8,7 @@ router.route('/sign-up')
   .post((req, res) => {
     signUp(req.body)
       .then(() => {
-        res.redirect('/')
+        res.redirect('/sign-in')
       })
       .catch((error) => {
         res.render('authentication/sign-up', { error: 'That email already exists' })
@@ -24,11 +24,20 @@ router.route('/sign-in')
           res.render('authentication/sign-in', { error: 'Invalid username or password' })
         }
         req.session.user = user
-        res.redirect(`/users/${req.session.user.id}`)
+        console.log('req.signin:::', req.session.user)
+        res.redirect(`/users/${user.id}`)
       })
       .catch(() => {
         res.render('authentication/sign-in', { error: 'Invalid username or password' })
       })
   })
+
+router.get('/logout', (req, res) => {
+  req.session.destroy((err) => {
+    console.log('req.session.user::::', req.session)
+    if (err) return next(err)
+    res.redirect('/')
+  })
+})
 
 module.exports = router
