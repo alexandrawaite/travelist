@@ -1,17 +1,25 @@
 <% include ../partials/header %>
 
-  <h1><%= city.name %></h1>
-  <p><%= city.description %></p>
+<div style="background-image: url(<%= city.city_image_url %>);" class="flex-container flex-center item-center full-height city-image">
+  <div class="flex-container flex-center item-center full-height">
+    <h1 class="city-name"><%= city.name %></h1>
+    <p class="city-description"><%= city.description %></p>
+  </div>
+</div>
 
-  <% if (isLoggedIn) { %>
-  <form action="/posts/<%= city.id %>/new">
-    <button type="submit">Add a post</button>
-  </form>
-  <% } %>
+<div class="city-page-container">
+<% if (isLoggedIn) { %>
+<form action="/posts/<%= city.id %>/new">
+  <button type="submit">Add a post</button>
+</form>
+<% } %>
 
-  <% posts.forEach(function(post) { %>
-  <p><%= post.title %></p>
-  <p><%= post.body %></p>
-  <% }) %>
+<h2>Posts from the community</h2>
+<% posts.forEach(function(post) { %>
+<a class="post-title" href="/posts/<%= post.id %>"><p><%= post.title %></p></a>
+<p><%= post.body %></p>
+<% }) %>
+
+</div>
 
 <% include ../partials/footer %>
