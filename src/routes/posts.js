@@ -17,9 +17,10 @@ router.route('/:cityId/new')
   })
   .post((req, res) => {
     console.log('req.body:::', req.body)
+    const { cityId } = req.params
     createPost(req.body)
       .then(() => {
-        res.redirect('/')
+        res.redirect(`/cities/${cityId}`)
       })
   })
 
@@ -43,7 +44,7 @@ router.put('/:postId', (req, res) => {
   const { postId } = req.params
   updatePost(postId, req.body)
     .then(() => {
-      res.redirect('/')
+      res.redirect(`/posts/${postId}`)
     })
 })
 
