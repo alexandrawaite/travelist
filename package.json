@@ -29,6 +29,8 @@
     "express": "^4.16.2",
     "express-session": "^1.15.6",
     "method-override": "^2.3.10",
+    "moment": "^2.20.1",
+    "normalize.css": "^8.0.0",
     "pg-promise": "^7.4.1"
   },
   "devDependencies": {
