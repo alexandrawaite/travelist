@@ -24,8 +24,7 @@ router.route('/sign-in')
           res.render('authentication/sign-in', { error: 'Invalid username or password' })
         }
         req.session.user = user
-        console.log('req.signin:::', req.session.user)
-        res.redirect(`/users/${user.id}`)
+        res.redirect(`/users/private`)
       })
       .catch(() => {
         res.render('authentication/sign-in', { error: 'Invalid username or password' })
