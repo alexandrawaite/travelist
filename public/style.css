@@ -1,9 +1,307 @@
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-li {
-    display: inline;
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  height: 100%;
+  margin: 0px;
+}
+
+.black-background li a:hover, .black-background li a:focus {
+  background: none;
+  border: none;
+  color: #AECFE5;
+  border-bottom: 1px double;
+  border-bottom-width: medium;
+}
+
+h1, a, .splash-text {
+  font-family: 'Lato', sans-serif;
+  color: white;
+}
+
+h4, p, label {
+  font-family: 'Lato', sans-serif;
+}
+
+.post-title {
+  color: black;
+}
+
+a {
+  font-size: 20px;
+}
+
+h1 {
+  font-size: 60px;
+  padding-top: 5px;
+}
+
+.form-link {
+  color: black;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.form-title {
+  color: black;
+  margin-top: 100px;
+}
+
+.form-row {
+  padding: 6px;
+}
+
+.form-text {
+  text-align: center;
+}
+
+.splash-title {
+  font-size: 60px;
+  font-weight: bold;
+  color: white;
+  border: 3px solid white;
+  padding: 0.2em 0.7em;
+  font-weight: 100;
+  border-radius: 2px;
+  line-height: 1em;
+}
+
+.splash-text {
+  font-size: 20px;
+  align-self: flex-start;
+  padding-left: 65px;
+  padding-bottom: 35px;
+  font-style: oblique;
+}
+
+.city-name {
+  font-size: 65px;
+  padding-top: 230px;
+  flex: 4;
+}
+
+.city-description {
+  -webkit-text-stroke: 0.5px black;
+  text-shadow:
+    -1px 0 #000000,
+    0 1px #000000,
+    1px 0 #000000,
+    0 -1px #000000;
+  font-size: 24px;
+  padding: 0px 150px 30px;
+  line-height: 2em;
+  text-align: center;
+  color: white;
+}
+
+.nav-background {
+  position: fixed;
+  width: 100%;
+}
+
+.main-container {
+  display: flex;
+  align-items: center;
+}
+
+.city-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 50px 100px 50px;
+}
+
+.splash-logo {
+  margin-left: 500px;
+  max-width: 450px;
+  max-height: 450px;
+}
+
+.city {
+  text-decoration: none;
+  color: black;
+}
+
+.city-links a:hover {
+  color: #AECFE5;
+  font-size: 22px;
+}
+
+.city-links a:before, .city-links a:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+}
+
+.city-links a:hover:before {
+  opacity: 1.0;
+}
+
+.city-links a, .city-links a:before {
+  -webkit-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+}
+
+.flex-container {
+  display: flex;
+  padding: 5px;
+  align-items: baseline;
+}
+
+.flex-item {
+  flex: 1;
+}
+
+.flex-start {
+  justify-content: flex-start;
+}
+
+.flex-end {
+  justify-content: flex-end;
+}
+
+.black-background {
+  opacity: 0.6;
+  background: black;
+}
+
+.footer {
+  font-family: 'Lato', sans-serif;
+  padding-top: 15px;
+  height: 50px;
+  text-align: center;
+  color: white;
+  font-weight: lighter;
+}
+
+.nav {
+  list-style: none;
+}
+
+.nav a {
+  text-decoration: none;
+  padding: 0 1em;
+  color: white;
+}
+
+.cities-title {
+  font-size: 30px;
+  border-bottom: 1px double;
+  border-bottom-width: medium;
+}
+
+.flex-center {
+  justify-content: center;
+}
+
+.full-height {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item-center {
+  /* align-items: center; */
+}
+
+.center-image {
+  background: url('images/big-sur.jpg') center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.city-image {
+  background: center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.sign-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+h2 {
+  font-family: 'Lato', sans-serif;
+  margin-top: 100px;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-row label {
+  padding-right: 10px;
+}
+
+.form-row input, .form-row label {
+  flex: 1;
+  margin-bottom: 10px;
+}
+
+.profile-wrapper {
+  display: flex;
+  text-align: left;
+  height: 100vh;
+  margin-top: 70px;
+}
+
+.city-page-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.city-page-container button {
+  flex: 1;
+}
+
+@media all and (min-width: 1000px) {
+  .profile-aside {
+    padding: 15px;
+  }
+  .post-container {
+    margin-top: 26px;
+    margin-left: 30px;
+    flex: 1;
+  }
+}
+
+.post-page-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.post-container {
+  display: flex;
+  height: 300px;
+  flex-direction: column;
+}
+
+.post-flex-container {
+  display: flex;
+  height: 200px;
+}
+
+.post-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  margin-left: 50px;
+  text-align: left;
+  height: 100%;
 }
