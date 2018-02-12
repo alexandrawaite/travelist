@@ -1,13 +1,22 @@
 <% include ./partials/header %>
 
-<div class="splash">
-  <h1>Travelist</h1>
+<div class="flex-container flex-center item-center full-height center-image">
+  <div class="flex-container flex-center item-center full-height">
+    <h1 class="splash-title">Travelist</h1>
+  </div>
+  <p class="splash-text">Share your travel stories</p>
+</div>
 
-  <div class="city-list">
+<div class="main-container">
+  <div class="city-container">
+    <h2 class="cities-title">Cities</h2>
     <% cities.forEach(function(city) { %>
-    <p><a href="/cities/<%= city.id %>"><%= city.name %></a></p>
+  <div class="city-links">
+    <a href="/cities/<%= city.id %>" class="city"><h3><%= city.name %></h3></a>
+  </div>
     <% }) %>
   </div>
+  <img class="splash-logo" src="images/splash-logo.png">
 </div>
 
 <% include ./partials/footer %>
