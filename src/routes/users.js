@@ -1,5 +1,6 @@
 const express = require('express')
 const { getUserById, getPostsByUserId, updateUser } = require('../actions')
+const moment = require('moment')
 
 const router = express.Router()
 
@@ -12,7 +13,7 @@ router.get('/private', (req, res) => {
       .then((user) => {
         getPostsByUserId(user.id)
           .then((posts) => {
-            res.render('users/private-profile', { user, posts })
+            res.render('users/private-profile', { user, posts, moment })
           })
       })
 })
@@ -23,7 +24,7 @@ router.get('/:userId', (req, res) => {
     .then((user) => {
       getPostsByUserId(userId)
         .then((posts) => {
-          res.render('users/private-profile', { user, posts })
+          res.render('users/profile', { user, posts, moment })
         })
     })
 })
