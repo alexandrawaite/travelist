@@ -1,18 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Travelist</title>
-    <link rel="stylesheet" type="text/css" href="/style.css">
-  </head>
-  <body>
-    <ul>
-      <% if (!isLoggedIn) { %>
-      <li><a href="/">Home</a></li>
-      <li><a href="/sign-up">Sign up</a></li>
-      <li><a href="/sign-in">Sign in</a></li>
-      <% } else { %>
-      <li><a href="/">Home</a></li>
-      <li><a href="/users/private">Profile</a></li>
-      <li><a href="/logout">Log out</a></li>
-      <% } %>
-    </ul>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Travelist</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="stylesheet" type="text/css" href="/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+</head>
+<body>
+  <div class="nav-background">
+    <nav class="flex-container black-background">
+      <ul class="nav flex-item flex-start">
+        <li><a href="/">Home</a></li>
+      </ul>
+      <ul class="nav flex-container flex-end">
+        <% if (!isLoggedIn) { %>
+        <li><a href="/sign-up">Sign up</a></li>
+        <li><a href="/sign-in">Sign in</a></li>
+        <% } else { %>
+        <li><a href="/users/private">Profile</a></li>
+        <li><a href="/logout">Log out</a></li>
+        <% } %>
+      </ul>
+    </nav>
+  </div>
