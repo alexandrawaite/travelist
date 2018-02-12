@@ -1,14 +1,21 @@
 <% include ../partials/header %>
 
-<h1>Profile</h1>
+<div class="flex-container">
+  <div class="profile-wrapper">
+    <div class="profile-aside">
+      <h2>Profile</h2>
 
-<p><%= user.name %></p>
-<p><%= user.primary_city %></p>
-<p><%= user.joined_at %></p>
-
-<% posts.forEach(function(post) { %>
-<p><%= post.title %></p>
-<p><%= post.body %></p>
-<% }) %>
+      <p>Name: <%= user.name %></p>
+      <p>Primary city: <%= user.primary_city %></p>
+      <p>Date joined: <%= moment(user.joined_at).format("MMM Do YY") %></p>
+    </div>
+    <div class="post-container">
+      <% posts.forEach(function(post) { %>
+      <a href="/posts/<%= post.id %>"><h2 class="post-title"><%= post.title %></h2></a>
+      <p><%= post.body %></p>
+      <% }) %>
+    </div>
+  </div>
+</div>
 
 <% include ../partials/footer %>
