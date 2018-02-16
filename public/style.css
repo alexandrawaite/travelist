@@ -12,6 +12,10 @@ body {
   margin: 0px;
 }
 
+/*
+* -- NAVBAR STYLES  --
+*/
+
 .black-background li a:hover, .black-background li a:focus {
   background: none;
   border: none;
@@ -20,9 +24,55 @@ body {
   border-bottom-width: medium;
 }
 
+.black-background {
+  opacity: 0.6;
+  background: black;
+}
+
+.nav-background {
+  position: fixed;
+  width: 100%;
+}
+
+.nav {
+  list-style: none;
+}
+
+.nav a {
+  text-decoration: none;
+  padding: 0 1em;
+  color: white;
+}
+
+.flex-item {
+  flex: 1;
+}
+
+.flex-start {
+  justify-content: flex-start;
+}
+
+.flex-end {
+  justify-content: flex-end;
+}
+
+/*
+* -- TEXT STYLES  --
+*/
+
 h1, a, .splash-text {
   font-family: 'Lato', sans-serif;
   color: white;
+}
+
+h1 {
+  font-size: 60px;
+  padding-top: 5px;
+}
+
+h2 {
+  font-family: 'Lato', sans-serif;
+  margin-top: 100px;
 }
 
 h4, p, label {
@@ -30,6 +80,8 @@ h4, p, label {
 }
 
 .post-title {
+  /* display: inline; */
+  text-decoration: none;
   color: black;
 }
 
@@ -37,10 +89,9 @@ a {
   font-size: 20px;
 }
 
-h1 {
-  font-size: 60px;
-  padding-top: 5px;
-}
+/*
+* -- FORM STYLES  --
+*/
 
 .form-link {
   color: black;
@@ -59,6 +110,37 @@ h1 {
 
 .form-text {
   text-align: center;
+}
+
+.sign-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-row label {
+  padding-right: 10px;
+}
+
+.form-row input, .form-row label {
+  flex: 1;
+  margin-bottom: 10px;
+}
+
+/*
+* -- SPLASH STYLES  --
+*/
+
+.center-image {
+  background: url('images/big-sur.jpg') center;
+  background-size: cover;
+  height: 100vh;
 }
 
 .splash-title {
@@ -80,29 +162,10 @@ h1 {
   font-style: oblique;
 }
 
-.city-name {
-  font-size: 65px;
-  padding-top: 230px;
-  flex: 4;
-}
-
-.city-description {
-  -webkit-text-stroke: 0.5px black;
-  text-shadow:
-    -1px 0 #000000,
-    0 1px #000000,
-    1px 0 #000000,
-    0 -1px #000000;
-  font-size: 24px;
-  padding: 0px 150px 30px;
-  line-height: 2em;
-  text-align: center;
-  color: white;
-}
-
-.nav-background {
-  position: fixed;
-  width: 100%;
+.splash-logo {
+  margin-left: 500px;
+  max-width: 450px;
+  max-height: 450px;
 }
 
 .main-container {
@@ -117,15 +180,10 @@ h1 {
   padding: 50px 100px 50px;
 }
 
-.splash-logo {
-  margin-left: 500px;
-  max-width: 450px;
-  max-height: 450px;
-}
-
-.city {
-  text-decoration: none;
-  color: black;
+.cities-title {
+  font-size: 30px;
+  border-bottom: 1px double;
+  border-bottom-width: medium;
 }
 
 .city-links a:hover {
@@ -150,56 +208,58 @@ h1 {
           transition: all 0.2s ease;
 }
 
-.flex-container {
-  display: flex;
-  padding: 5px;
-  align-items: baseline;
+.city-text {
+  text-decoration: none;
+  color: black;
 }
 
-.flex-item {
+/*
+* -- CITY PAGE STYLES  --
+*/
+
+.city-name {
+  font-size: 65px;
+  padding-top: 230px;
+  flex: 4;
+}
+
+.city-description {
+  -webkit-text-stroke: 0.5px black;
+  text-shadow:
+    -1px 0 #000000,
+    0 1px #000000,
+    1px 0 #000000,
+    0 -1px #000000;
+  font-size: 24px;
+  padding: 0px 150px 30px;
+  line-height: 2em;
+  text-align: center;
+  color: white;
+}
+
+.city-page-container {
+  display: flex;
+  /* flex-direction: column; */
+  /* text-align: center; */
+}
+
+.city-page-container button {
   flex: 1;
 }
 
-.flex-start {
-  justify-content: flex-start;
-}
-
-.flex-end {
-  justify-content: flex-end;
-}
-
-.black-background {
-  opacity: 0.6;
-  background: black;
-}
-
-.footer {
-  font-family: 'Lato', sans-serif;
-  padding-top: 15px;
-  height: 50px;
-  text-align: center;
-  color: white;
-  font-weight: lighter;
-}
-
-.nav {
-  list-style: none;
-}
-
-.nav a {
-  text-decoration: none;
-  padding: 0 1em;
-  color: white;
-}
-
-.cities-title {
-  font-size: 30px;
-  border-bottom: 1px double;
-  border-bottom-width: medium;
+.flex-container {
+  display: flex;
+  flex: 1;
+  /* padding: 5px; */
+  align-items: baseline;
 }
 
 .flex-center {
   justify-content: center;
+}
+
+.item-center {
+  align-items: center;
 }
 
 .full-height {
@@ -209,65 +269,21 @@ h1 {
   align-items: center;
 }
 
-.item-center {
-  /* align-items: center; */
-}
-
-.center-image {
-  background: url('images/big-sur.jpg') center;
-  background-size: cover;
-  height: 100vh;
-}
-
 .city-image {
   background: center;
   background-size: cover;
   height: 100vh;
 }
 
-.sign-container {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-
-
-h2 {
-  font-family: 'Lato', sans-serif;
-  margin-top: 100px;
-}
-
-.form-row {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.form-row label {
-  padding-right: 10px;
-}
-
-.form-row input, .form-row label {
-  flex: 1;
-  margin-bottom: 10px;
-}
+/*
+* -- PROFILE PAGE STYLES  --
+*/
 
 .profile-wrapper {
   display: flex;
   text-align: left;
-  height: 100vh;
+  height: 100%;
   margin-top: 70px;
-}
-
-.city-page-container {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
-
-.city-page-container button {
-  flex: 1;
 }
 
 @media all and (min-width: 1000px) {
@@ -275,25 +291,29 @@ h2 {
     padding: 15px;
   }
   .post-container {
-    margin-top: 26px;
-    margin-left: 30px;
     flex: 1;
   }
 }
 
+/*
+* -- POST PAGE STYLES  --
+*/
+
 .post-page-container {
   display: flex;
   flex-direction: row;
+  flex: 1;
 }
 
 .post-container {
   display: flex;
-  height: 300px;
+  /* height: 300px; */
   flex-direction: column;
 }
 
 .post-flex-container {
   display: flex;
+  flex: 1;
   height: 200px;
 }
 
@@ -304,4 +324,15 @@ h2 {
   margin-left: 50px;
   text-align: left;
   height: 100%;
+}
+
+/* Footer */
+
+.footer {
+  font-family: 'Lato', sans-serif;
+  padding-top: 15px;
+  height: 50px;
+  text-align: center;
+  color: white;
+  font-weight: lighter;
 }
