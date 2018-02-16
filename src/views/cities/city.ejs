@@ -7,19 +7,21 @@
   </div>
 </div>
 
+<div class="main-container">
+
 <div class="city-page-container">
 <% if (isLoggedIn) { %>
-<form action="/posts/<%= city.id %>/new">
-  <button type="submit">Add a post</button>
-</form>
-<% } %>
+  <form action="/posts/<%= city.id %>/new">
+    <button type="submit">Add a post</button>
+  </form>
+  <% } %>
 
-<h2>Posts from the community</h2>
-<% posts.forEach(function(post) { %>
-<a class="post-title" href="/posts/<%= post.id %>"><p><%= post.title %></p></a>
-<p><%= post.body %></p>
-<% }) %>
+  <% posts.forEach(function(post) { %>
+  <a class="post-title" href="/posts/<%= post.id %>"><h2><%= post.title %></h2></a>
+  <p><%= post.body %></p>
+  <% }) %>
 
+</div>
 </div>
 
 <% include ../partials/footer %>
