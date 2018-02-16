@@ -1,31 +1,45 @@
 <% include ../partials/header %>
 
 <div class="post-page-container">
-  <div class="profile-wrapper">
+  <div class="post-page-container">
+    <div class="profile-wrapper">
 
-    <div class="profile-aside">
-      <h4>Profile</h4>
-      <form action="/users/<%= user.id %>">
-        <span><button type="submit">Public profile</button></span>
-      </form>
-
-      <p><%= user.name %></p>
-      <p>Primary city: <%= user.primary_city %></p>
-      <p>Date joined: <%= moment(user.joined_at).format("MMM Do YY") %></p>
-      <form action="/users/<%= user.id %>/edit">
-        <button type="submit">Edit profile</button>
-      </form>
-    </div>
-
-    <div class="post-container">
-      <% posts.forEach(function(post) { %>
-        <a class="post-title" href="/posts/<%= post.id %>"><%= post.title %></a>
-        <p class="post-body"><%= post.body %></p>
-        <p>Posted <%= moment(post.created_at).fromNow() %> ago</p>
-        <form action="/posts/<%= post.id %>/edit">
-          <button class="post-edit-btn" type="submit">Edit post</button>
+      <div class="profile-aside">
+        <h4>Profile</h4>
+        <form action="/users/<%= user.id %>">
+          <span><button type="submit">Public profile</button></span>
         </form>
-        <% }) %>
+
+        <p>
+          <%= user.name %>
+        </p>
+        <p>Primary city:
+          <%= user.primary_city %>
+        </p>
+        <p>Date joined:
+          <%= moment(user.joined_at).format("MMM Do YY") %>
+        </p>
+        <form action="/users/<%= user.id %>/edit">
+          <button type="submit">Edit profile</button>
+        </form>
+      </div>
+
+      <div class="post-container">
+        <% posts.forEach(function(post) { %>
+          <a class="post-title" href="/posts/<%= post.id %>">
+            <%= post.title %>
+          </a>
+          <p class="post-body">
+            <%= post.body %>
+          </p>
+          <p>Posted
+            <%= moment(post.created_at).fromNow() %>
+          </p>
+          <form action="/posts/<%= post.id %>/edit">
+            <button class="post-edit-btn" type="submit">Edit post</button>
+          </form>
+          <% }) %>
+      </div>
     </div>
   </div>
 
