@@ -13,18 +13,24 @@ const createPost = (post) => {
 
 const getPostById = (postId) => {
   const query = `
-    SELECT * FROM
+    SELECT
+      users.name, posts.id, posts.title, posts.body, posts.created_at
+    FROM
       posts
-    WHERE id = $1
+    JOIN users ON posts.user_id = users.id
+      WHERE posts.id = $1
   `
   return db.one(query, [postId])
 }
 
 const getPostsByCityId = (cityId) => {
   const query = `
-    SELECT * FROM
-      posts
-    WHERE city_id = $1
+  SELECT
+    users.name, posts.id, posts.title, posts.body, posts.created_at
+  FROM
+    posts
+  JOIN users ON posts.user_id = users.id
+  WHERE city_id = $1
   `
   return db.any(query, [cityId])
 }
