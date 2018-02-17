@@ -1,4 +1,5 @@
 const express = require('express')
+const moment = require('moment')
 const { getCityById, getPostsByCityId } = require('../actions')
 
 const router = express.Router()
@@ -9,7 +10,7 @@ router.get('/:cityId', (req, res) => {
     .then((city) => {
       getPostsByCityId(cityId)
         .then((posts) => {
-          res.render('cities/city', { city, posts })
+          res.render('cities/city', { moment, city, posts })
         })
     })
 })
