@@ -17,7 +17,7 @@
           <%= user.primary_city %>
         </p>
         <p>Date joined:
-          <%= moment(user.joined_at).format("MMM Do YY") %>
+          <%= moment(user.joined_at).format("MMM DD YYYY") %>
         </p>
         <form action="/users/<%= user.id %>/edit">
           <button type="submit">Edit profile</button>
