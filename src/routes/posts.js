@@ -1,4 +1,5 @@
 const express = require('express')
+const moment = require('moment')
 const { createPost, getPostById, updatePost, getUserById, getCityById } = require('../actions')
 
 const router = express.Router()
@@ -28,7 +29,8 @@ router.get('/:postId', (req, res) => {
   const { postId } = req.params
   getPostById(postId)
     .then((post) => {
-      res.render('posts/post', { post })
+      console.log('post::::', post)
+      res.render('posts/post', { moment, post })
     })
 })
 
