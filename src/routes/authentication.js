@@ -33,7 +33,6 @@ router.route('/sign-in')
 
 router.get('/logout', (req, res) => {
   req.session.destroy((err) => {
-    console.log('req.session.user::::', req.session)
     if (err) return next(err)
     res.redirect('/')
   })
