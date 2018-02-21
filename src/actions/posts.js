@@ -14,10 +14,11 @@ const createPost = (post) => {
 const getPostById = (postId) => {
   const query = `
     SELECT
-      users.name, posts.id, posts.title, posts.body, posts.created_at
+      users.name, cities.name, posts.id, posts.title, posts.body, posts.created_at
     FROM
       posts
     JOIN users ON posts.user_id = users.id
+    JOIN cities ON posts.city_id = cities.id
       WHERE posts.id = $1
   `
   return db.one(query, [postId])
@@ -26,7 +27,7 @@ const getPostById = (postId) => {
 const getPostsByCityId = (cityId) => {
   const query = `
   SELECT
-    users.name, posts.id, posts.title, posts.body, posts.created_at
+    users.name, posts.id, posts.user_id, posts.title, posts.body, posts.created_at
   FROM
     posts
   JOIN users ON posts.user_id = users.id
@@ -37,8 +38,11 @@ const getPostsByCityId = (cityId) => {
 
 const getPostsByUserId = (userId) => {
   const query = `
-    SELECT * FROM
+    SELECT
+      cities.name, posts.id, posts.title, posts.body, posts.created_at
+    FROM
       posts
+    JOIN cities ON posts.city_id = cities.id
     WHERE user_id = $1
   `
   return db.any(query, [userId])
