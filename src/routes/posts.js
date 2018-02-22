@@ -17,7 +17,6 @@ router.route('/:cityId/new')
       })
   })
   .post((req, res) => {
-    console.log('req.body:::', req.body)
     const { cityId } = req.params
     createPost(req.body)
       .then(() => {
@@ -29,7 +28,6 @@ router.get('/:postId', (req, res) => {
   const { postId } = req.params
   getPostById(postId)
     .then((post) => {
-      console.log('post::::', post)
       res.render('posts/post', { moment, post })
     })
 })
