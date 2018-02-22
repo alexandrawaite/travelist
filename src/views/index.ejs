@@ -1,22 +1,26 @@
 <% include ./partials/header %>
-
-<div class="flex-container flex-center item-center full-height center-image">
-  <div class="flex-container flex-center item-center full-height">
-    <h1 class="splash-title">Travelist</h1>
+<div class="splash-container">
+  <div class="flex-container flex-center item-center full-height center-image">
+    <div class="flex-container flex-center item-center full-height">
+      <h1 class="splash-title">Travelist</h1>
+    </div>
+    <p class="splash-text">Join our community and share your travel stories</p>
   </div>
-  <p class="splash-text">Share your travel stories</p>
-</div>
 
-<div class="main-container">
-  <div class="city-container">
-    <h2 class="cities-title">Cities</h2>
-    <% cities.forEach(function(city) { %>
-  <div class="city-links">
-    <a href="/cities/<%= city.id %>" class="city-text"><h3><%= city.name %></h3></a>
-  </div>
-    <% }) %>
+  <h2 class="cities-title">Cities</h2>
+
+  <div class="main-container">
+    <div class="cards-container">
+
+      <% cities.forEach(function(city) { %>
+      <div style="background-image: url(<%= city.city_image_url %>)" class="card">
+      <a href="/cities/<%= city.id %>" class="card"><h3><%= city.name %></h3></a>
+      </div>
+      <% }) %>
+
+    </div>
+
   </div>
   <img class="splash-logo" src="images/splash-logo.png">
 </div>
-
 <% include ./partials/footer %>
