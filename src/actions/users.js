@@ -46,12 +46,13 @@ const updateUser = (userId, user) => {
       users
     SET
       name = $1,
-      primary_city = $2
+      primary_city = $2,
+      user_image_url = $3
     WHERE
-      id = $3
+      id = $4
     RETURNING *
   `
-  return db.one(query, [user.name, user.primary_city, userId])
+  return db.one(query, [user.name, user.primary_city, user.user_image_url, userId])
 }
 
 module.exports = {
