@@ -14,7 +14,7 @@ const createPost = (post) => {
 const getPostById = (postId) => {
   const query = `
     SELECT
-      users.name, cities.name, posts.id, posts.title, posts.body, posts.created_at
+      users.name, cities.id AS city_id, cities.name, posts.id, posts.title, posts.body, posts.created_at
     FROM
       posts
     JOIN users ON posts.user_id = users.id
@@ -39,7 +39,7 @@ const getPostsByCityId = (cityId) => {
 const getPostsByUserId = (userId) => {
   const query = `
     SELECT
-      cities.name, posts.id, posts.title, posts.body, posts.created_at
+      cities.name, cities.id AS city_id, posts.id, posts.title, posts.body, posts.created_at
     FROM
       posts
     JOIN cities ON posts.city_id = cities.id
