@@ -1,29 +1,53 @@
 <% include ../partials/header %>
 
-<div style="background-image: url(<%= city.city_image_url %>);" class="flex-container flex-center item-center full-height city-image">
-  <div class="flex-container flex-center item-center full-height">
+<div style="background: linear-gradient(
+                     rgba(20,20,20, .22),
+                     rgba(20,20,20, .22)),
+                     url(<%= city.city_image_url %>); background-size: cover;
+                       background-position: center;" class="banner">
+  <div class="container">
     <h1 class="city-name"><%= city.name %></h1>
     <p class="city-description"><%= city.description %></p>
   </div>
 </div>
 
-<div class="main-container">
 
-<div class="city-page-container">
-<% if (isLoggedIn) { %>
-  <form action="/posts/<%= city.id %>/new">
-    <button type="submit">Add a post</button>
-  </form>
-  <% } %>
+  <div class="profile-container">
+    <div class="profile">
+      <div class="profile-card city-aside">
+        <div class="profile-card-content">
 
-  <% posts.forEach(function(post) { %>
-  <a class="post-title" href="/posts/<%= post.id %>"><h2><%= post.title %></h2></a>
-  <p><%= post.name %></p>
-  <p><%= moment(post.created_at).format("MMM DD YYYY") %></p>
-  <p><%= post.body %></p>
-  <% }) %>
+          <% if (isLoggedIn) { %>
+          <h2 class="city-post-title">Got something to share?</h2>
+          <form action="/posts/<%= city.id %>/new">
+            <button class="profile-btn" type="submit">Add a post</button>
+          </form>
+          <% } else { %>
+          <h2 class="city-post-title">Got something to share?</h2>
+          <form action="/sign-up">
+            <button class="profile-btn" type="submit">Sign up!</button>
+          </form>
+          <% } %>
+        </div>
 
-</div>
-</div>
+      </div>
+      <div class="profile-card posts">
+        <div class="city-card-content">
+
+          <h1 class="city-post-title">Posts from the community</h1>
+
+          <% posts.forEach(function(post) { %>
+          <a class="post-title" href="/posts/<%= post.id %>"><h3 class="post-title-text"><%= post.title %></h3></a>
+          <a href="/users/<%= post.user_id %>"><%= post.name %></a>
+          <p><%= moment(post.created_at).format("MMM DD YYYY") %></p>
+          <p class="post-body-text"><%= post.body %></p>
+          <% }) %>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
 
 <% include ../partials/footer %>
