@@ -1,22 +1,31 @@
 <% include ../partials/header %>
 
-<div class="flex-container">
-  <div class="profile-wrapper">
-    <div class="profile-aside">
-      <h2>Profile</h2>
+<div class="profile-container">
 
-      <p>Name: <%= user.name %></p>
-      <p>Primary city: <%= user.primary_city %></p>
-      <p>Date joined: <%= moment(user.joined_at).format("MMM DD YYYY") %></p>
+  <div class="profile">
+    <div class="profile-card profile-aside">
+      <div class="profile-card-content">
+
+        <img src="<%= user.user_image_url %>" alt="profile-image">
+        <h3><%= user.name %></h3>
+        <i class="fas fa-map-marker-alt"></i><span><%= user.primary_city %></span>
+        <p>Date joined: <%= moment(user.joined_at).format("MMM DD YYYY") %></p>
+      </div>
     </div>
-    <div class="post-container">
-      <% posts.forEach(function(post) { %>
-      <a href="/posts/<%= post.id %>"><h2 class="post-title"><%= post.title %></h2></a>
-      <p><%= moment(post.created_at).format("MMM DD YYYY") %></p>
-      <p><%= post.body %></p>
-      <% }) %>
+
+    <div class="profile-card posts">
+      <div class="profile-card-content">
+
+        <% posts.forEach(function(post) { %>
+        <a href="/posts/<%= post.id %>"><h2 class="post-title"><%= post.title %></h2></a>
+        <i class="fas fa-map-marker-alt"></i><a href="/cities/<%= post.city_id %>"><%= post.name %></a>
+        <p><%= moment(post.created_at).format("MMM DD YYYY") %></p>
+        <p><%= post.body %></p>
+        <% }) %>
+      </div>
     </div>
   </div>
+
 </div>
 
 <% include ../partials/footer %>

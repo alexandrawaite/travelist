@@ -1,48 +1,46 @@
 <% include ../partials/header %>
 
-<div class="post-page-container">
-  <div class="post-page-container">
-    <div class="profile-wrapper">
+<div class="profile-container">
 
-      <div class="profile-aside">
-        <h4>Profile</h4>
-        <form action="/users/<%= user.id %>">
-          <span><button type="submit">Public profile</button></span>
-        </form>
+  <div class="profile">
+      <div class="profile-card profile-aside">
+        <div class="profile-card-content">
 
-        <p>
-          <%= user.name %>
-        </p>
-        <p>Primary city:
-          <%= user.primary_city %>
-        </p>
-        <p>Date joined:
-          <%= moment(user.joined_at).format("MMM DD YYYY") %>
-        </p>
-        <form action="/users/<%= user.id %>/edit">
-          <button type="submit">Edit profile</button>
-        </form>
+          <img src="<%= user.user_image_url %>" alt="profile-image">
+          <h3><%= user.name %></h3>
+          <i class="fas fa-map-marker-alt"></i><span><%= user.primary_city %></span>
+          <p>Date joined:
+            <%= moment(user.joined_at).format("MMM DD YYYY") %>
+          </p>
+          <form action="/users/<%= user.id %>/edit">
+            <button class="profile-btn" type="submit">Edit profile</button>
+          </form>
+          <form action="/users/<%= user.id %>">
+            <button class="profile-btn" type="submit">Public profile</button>
+          </form>
+        </div>
       </div>
 
-      <div class="post-container">
-        <% posts.forEach(function(post) { %>
-          <a class="post-title" href="/posts/<%= post.id %>">
-            <%= post.title %>
-          </a>
-          <p class="post-body">
-            <%= post.body %>
-          </p>
-          <p>Posted
-            <%= moment(post.created_at).fromNow() %>
-          </p>
+      <div class="profile-card posts">
+        <div class="profile-card-content">
+
+          <% if (posts.length === 0) { %>
+          <h1>No posts yet.</h1>
+          <% } else { %>
+          <% posts.forEach(function(post) { %>
+          <a class="post-title" href="/posts/<%= post.id %>"><h2><%= post.title %></h2></a>
+          <i class="fas fa-map-marker-alt"></i><a href="/cities/<%= post.city_id %>"><%= post.name %></a>
+          <p>Posted <%= moment(post.created_at).fromNow() %></p>
+          <p class="post-body"><%= post.body %></p>
           <form action="/posts/<%= post.id %>/edit">
             <button class="post-edit-btn" type="submit">Edit post</button>
           </form>
           <% }) %>
+          <% } %>
+        </div>
       </div>
     </div>
-  </div>
 
-</div>
+  </div>
 
 <% include ../partials/footer %>

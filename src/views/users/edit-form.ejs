@@ -12,7 +12,11 @@
       <input type="text" name="primary_city" value="<%= user.primary_city %>" required/>
     </div>
     <div class="form-row">
-      <input type="submit" value="Submit">
+      <label for="user_image_url">Profile image URL:</label>
+      <input type="text" name="user_image_url" value="<%= user.user_image_url %>" required/>
+    </div>
+    <div class="form-row">
+      <input class="profile-btn" type="submit" value="Submit">
     </div>
   </form>
 </div>
