@@ -20,33 +20,43 @@ Be sure the following are installed:
 
 ### Setting up Dev
 
+Fork this repository and clone your fork:
+
+```
+$ git clone https://github.com/YOUR-USERNAME/travelist.git
+
+$ cd travelist/
+```
+
 Install the required dependencies:
 
 ```
-git clone https://github.com/alexandrawaite/travelist.git
-
-cd travelist/
-
-npm install
+$ npm install
 ```
 
 Set up and seed the database:
 
 ```
-npm run db:init
+$ npm run db:init
 ```
 
 Start the development server:
 
 ```
-npm start
+$ npm start
 ```
 
-Or `nodemon` to start the server with nodemon
+Or
+
+```
+$ nodemon
+```
+
+to start the server with nodemon
 
 ## Links
 
-- Project homepage: http://still-retreat-43213.herokuapp.com/
+- Project homepage: http://travelist-app.herokuapp.com/
 - Repository: https://github.com/alexandrawaite/travelist
 
 ## Licensing
