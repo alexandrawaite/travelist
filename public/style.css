@@ -114,8 +114,6 @@ h1, h2, h3, p {
 }
 
 .city {
-  /* display: flex;
-  flex-direction: column; */
   flex: 1;
 }
 
@@ -132,7 +130,6 @@ h1, h2, h3, p {
 .post-page-container {
   display: flex;
   width: 100%;
-  /* flex: 1; */
 }
 
 .post-card {
@@ -219,6 +216,10 @@ h1, h2, h3, p {
 .flex-end {
   justify-content: flex-end;
 }
+
+/*
+* -- FOOTER STYLES  --
+*/
 
 footer {
   flex: 0;
@@ -385,7 +386,6 @@ a {
   margin: 0 auto;
   max-width: 40%;
   padding: 20px;
-  /* max-height: 30%; */
 }
 
 .main-container {
@@ -400,6 +400,10 @@ a {
   padding: 50px 100px 50px;
 }
 
+/*
+* -- CITY PAGE STYLES  --
+*/
+
 .cities-title {
   margin: 0 auto;
   text-align: center;
@@ -413,7 +417,6 @@ a {
 .city-name {
   text-align: center;
   font-size: 40px;
-  /* -webkit-text-stroke: 0.5px black; */
   text-shadow:
     -1px 0 #000000,
     0 1px #000000,
@@ -448,12 +451,8 @@ a {
   color: black;
 }
 
-/*
-* -- CITY PAGE STYLES  --
-*/
 
 .city-description {
-  /* -webkit-text-stroke: 0.7px black; */
   text-shadow:
     -1px 0 #000000,
     0 1px #000000,
