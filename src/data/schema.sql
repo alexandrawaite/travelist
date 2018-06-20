@@ -8,7 +8,7 @@ CREATE TABLE users (
   email TEXT NOT NULL UNIQUE,
   password TEXT NOT NULL,
   joined_at DATE DEFAULT CURRENT_DATE,
-  user_image_url TEXT DEFAULT 'https://s18.postimg.org/5s07cv2ih/default-employer-profile.png',
+  user_image_url TEXT DEFAULT 'https://s18.postimg.cc/5s07cv2ih/default-employer-profile.png',
   primary_city TEXT NOT NULL
 );
 
