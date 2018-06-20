@@ -4,7 +4,7 @@
     <div class="flex-container flex-center item-center full-height">
       <h1 class="splash-title">Travelist</h1>
     </div>
-    <p class="splash-text">Join our community and share your travel stories</p>
+    <p class="splash-text">Join the community and share your travels</p>
   </div>
 
   <h2 class="cities-title">Cities</h2>
@@ -13,9 +13,11 @@
     <div class="cards-container">
 
       <% cities.forEach(function(city) { %>
-      <div style="background-image: url(<%= city.city_image_url %>)" class="card">
-      <a href="/cities/<%= city.id %>" class="card"><h3><%= city.name %></h3></a>
-      </div>
+      <a href="/cities/<%= city.id %>" class="city-card card">
+        <div style="background-image: url(<%= city.city_image_url %>)" class="card">
+          <h3><%= city.name %></h3>
+        </div>
+      </a>
       <% }) %>
 
     </div>

@@ -12,18 +12,18 @@
 </div>
 
 
-  <div class="profile-container">
+  <div class="city-container">
     <div class="profile">
       <div class="profile-card city-aside">
         <div class="profile-card-content">
 
           <% if (isLoggedIn) { %>
-          <h2 class="city-post-title">Got something to share?</h2>
+          <h2 class="city-post-title">Care to share?</h2>
           <form action="/posts/<%= city.id %>/new">
             <button class="profile-btn" type="submit">Add a post</button>
           </form>
           <% } else { %>
-          <h2 class="city-post-title">Got something to share?</h2>
+          <h2 class="city-post-title">Care to share?</h2>
           <form action="/sign-up">
             <button class="profile-btn" type="submit">Sign up!</button>
           </form>
@@ -37,9 +37,8 @@
           <h1 class="city-post-title">Posts from the community</h1>
 
           <% posts.forEach(function(post) { %>
-          <a class="post-title" href="/posts/<%= post.id %>"><h3 class="post-title-text"><%= post.title %></h3></a>
-          <a href="/users/<%= post.user_id %>"><%= post.name %></a>
-          <p><%= moment(post.created_at).format("MMM DD YYYY") %></p>
+         <a class="post-title" href="/posts/<%= post.id %>"><h3 class="post-title-text"><%= post.title %></h3></a>
+          <i><p class="author">By: <a href="/users/<%= post.user_id %>"><%= post.name %></a> on <%= moment(post.created_at).format("MMM DD YYYY") %></p></i>
           <p class="post-body-text"><%= post.body %></p>
           <% }) %>
         </div>
