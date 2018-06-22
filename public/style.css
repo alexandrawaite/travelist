@@ -85,6 +85,15 @@ h1, h2, h3, p {
 
 .city-aside {
   height: 50%;
+  background: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  padding: 50px;
+  margin: 10px;
+  text-align: center;
+}
+
+.profile-card.posts {
+  text-align: left;
 }
 
 .profile-card-content a {
@@ -115,6 +124,16 @@ h1, h2, h3, p {
 .profile-container {
   flex: 1;
   padding-top: 80px;
+}
+
+.city-btn {
+  border-radius: 5px;
+  border: none;
+  width: 80%;
+  margin-top: 25px;
+  background: #467386;
+  padding: 10px;
+  color: white;
 }
 
 .city {
